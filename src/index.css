@@ -41,7 +41,7 @@ p {
 .head-hero {
   margin: 3vh 0;
   font-weight: 700;
-  font-size: 4em;
+  font-size: clamp(3rem,15vw,13rem);
   border-top: 1px solid;
   border-bottom: 1px solid;
 }
@@ -194,11 +194,10 @@ p {
   }
 }
 
-@media screen and (min-width: 800px){
+/* @media screen and (min-width: 800px){
   .blogs-container {
-    background-color: #c01574;
   }
-}
+} */
 
 #root {
   margin: 0;
