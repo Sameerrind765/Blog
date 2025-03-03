@@ -41,7 +41,7 @@ p {
 .head-hero {
   margin: 3vh 0;
   font-weight: 700;
-  font-size: clamp(3rem,15vw,13rem);
+  font-size: clamp(3rem, 15vw, 13rem);
   border-top: 1px solid;
   border-bottom: 1px solid;
 }
@@ -66,10 +66,12 @@ p {
 .blogs-container,
 .all-posts {
   display: grid;
-  gap: 24px;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  align-items: center;
-  justify-content: center;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 100%;
+  grid-auto-rows: minmax(200px, auto);
+  gap: clamp(0.5rem, 2vw, 2rem);
+  overflow: hidden;
+  align-items: stretch;
 }
 
 .blog {
@@ -77,15 +79,18 @@ p {
   flex-direction: column;
   text-align: left;
   width: 100%;
-  gap: 24px;
+  font-size: 16px;
+  gap: clamp(0.5rem, 2vw, 2rem);
 }
 
 .blog-image {
-  width: 100%;
+  width: auto;
+  aspect-ratio: 8/5;
   margin: auto;
 }
 
 .blog .date {
+  font-size: .875em;
   color: #6941C6;
   font-weight: var(--semi-bold);
 }
@@ -98,16 +103,17 @@ p {
 
 .blog h2 {
   font-weight: var(--semi-bold);
-  font-size: 24px;
+  font-size: 1.125em;
 }
 
 .blog p {
-  font-size: 16px;
+  font-size: 1em;
 }
 
 .blog-tags {
+  font-size: .875em;
   display: flex;
-  gap: 14px;
+  gap: .875em;
 }
 
 .blog-tags p:nth-child(1) {
@@ -122,6 +128,7 @@ p {
 
 
 .blog-tags p {
+  line-height: 16px;
   padding: 5px;
   background-color: #F9F5FF;
   width: fit-content;
@@ -136,7 +143,8 @@ p {
   gap: 15px;
 }
 
-@media screen and (min-width: 550px) and (max-width:800px) {
+@media screen and (min-width: 550px) and (max-width:660px) {
+
   .blog {
     flex-direction: row;
     gap: 24px;
@@ -163,10 +171,6 @@ p {
     font-size: 14px;
   }
 
-  .blogs-container {
-    grid-template-columns: 1fr;
-  }
-
   .blog-tags {
     display: none;
   }
@@ -184,6 +188,8 @@ p {
   .blogs-container .blog:nth-child(1) .blog-image,
   .blogs-container .blog:nth-child(4) .blog-image {
     width: 100%;
+    aspect-ratio: 10 / 3;
+    object-fit: cover;
   }
 
   .blogs-container .blog:nth-child(1) .blog-tags,
@@ -198,6 +204,30 @@ p {
   .blogs-container {
   }
 } */
+@media (max-width: 768px) {
+  .blogs-container,.all-posts {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 900px) {
+
+.blog:nth-child(1) .blog-image{
+  aspect-ratio: 2.6/1;
+  grid-row: span 2;
+  margin: 0;
+  justify-content: space-between;
+}
+.blog:nth-child(1){
+  grid-row: span 2;
+}
+.blog:nth-child(2){
+  flex-direction: row;
+}
+.blog:nth-child(3){
+  flex-direction: row;
+}
+}
 
 #root {
   margin: 0;
