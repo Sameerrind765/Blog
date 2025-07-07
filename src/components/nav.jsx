@@ -1,11 +1,14 @@
 import styled from "styled-components";
 
 const NavContainer = styled.nav`
+  border-bottom: 1px solid;
+  height: 100px;
+  margin: 0 1rem;
+  padding: 0 0px;
   display: flex;
   align-items: center;
-  width: 100%;
+  width: -webkit-fill-available;
   justify-content: space-between;
-  padding: 1rem;
 
   ul {
     display: flex;

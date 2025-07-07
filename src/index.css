@@ -39,19 +39,17 @@ p {
 }
 
 .head-hero {
-  margin: 3vh 0;
   font-weight: 700;
   font-size: clamp(3rem, 15vw, 13rem);
-  border-top: 1px solid;
-  border-bottom: 1px solid;
 }
 
 .blogs-container-head {
+  border-top: 1px solid;
   display: grid;
 }
 
 .blogs-container-head h3 {
-  margin: 0 0 2vh 0;
+  margin: 2vh 0;
   text-align: left;
   font-size: 24px;
 }
@@ -86,7 +84,6 @@ p {
 .blog-image {
   width: auto;
   aspect-ratio: 8/5;
-  margin: auto;
 }
 
 .blog .date {
@@ -205,6 +202,13 @@ p {
   }
 } */
 @media (max-width: 768px) {
+  .head-hero {
+    font-size: 60px;
+    padding: 2vh 0;
+  }
+  .blogs-container-head {
+    margin:0 2vh;
+  }
   .blogs-container,.all-posts {
     grid-template-columns: 1fr;
   }
