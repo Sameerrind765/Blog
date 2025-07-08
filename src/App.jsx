@@ -1,33 +1,34 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
 import Nav from "./components/nav";
-import Blog from "./components/blog";
+import Home from "./pages/home";
+import Newsletter from "./pages/newsletter";
+import Footer from "./components/footer";
 import "./App.css";
 
 function App() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/api/news")
+      .then((res) => res.json())
+      .then((data) => {
+        setPosts(data);
+      })
+      .catch((err) => console.error("Error:", err));
+  }, []);
+
+
   return (
-    <>
+    <BrowserRouter basename="/Blog">
       <Nav />
-      <div className="head-hero">THE BLOG</div>
-      <div className="blogs-container-head">
-        <h3>Recent blog posts</h3>
-        <div className="blogs-container">
-          <Blog />
-          <Blog />
-          <Blog />
-          <Blog />
-        </div>
-          <h3 id="head-post">All blog post</h3>
-        <div className="all-posts">
-          <Blog />
-          <Blog />
-          <Blog />
-          <Blog />
-          <Blog />
-          <Blog />
-          <Blog />
-          <Blog />
-        </div>
-      </div>
-    </>
+      <Routes>
+        <Route path="/" element={<Home posts={posts} />} />
+        <Route path="/About" element={<Home posts={posts} />} />
+        <Route path="/Newsletter" element={<Newsletter />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   );
 }
 

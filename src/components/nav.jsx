@@ -1,11 +1,13 @@
 import styled from "styled-components";
-
+import { Link } from "react-router-dom";
 const NavContainer = styled.nav`
   display: flex;
   align-items: center;
   width: 100%;
+  height: 111px;
   justify-content: space-between;
   padding: 1rem;
+  border-bottom: 1px solid;
 
   ul {
     display: flex;
@@ -45,19 +47,21 @@ const NavContainer = styled.nav`
 function Nav() {
   return (
     <NavContainer>
-      <div id="nav-logo">Blog</div>
+      <div id="nav-logo">
+        <Link to="/">Blog</Link>
+      </div>
       <div id="nav-menu">
         <img src="./icons/menu.svg" alt="Menu" />
       </div>
       <ul>
         <li>
-          <a href="#">Projects</a>
+          <a href="/">Projects</a>
         </li>
         <li>
-          <a href="#">About</a>
+          <Link to="/About">About</Link>
         </li>
         <li>
-          <a href="#">Newsletter</a>
+          <Link to="/Newsletter">Newsletter</Link>
         </li>
       </ul>
     </NavContainer>

@@ -1,17 +1,19 @@
-function Blog() {
+function Blog({ post }) {
+  if (!post || !post.description) return null;
+  const shortdesc =
+    post.description?.length > 80
+      ? post.description.slice(0, 80) + "..."
+      : post.description || "";
   return (
-    <div className="blog">
-      <img className="blog-image" src="./images/blog1.jpg" alt="blog" />
+    <div className="blog" key={post.id}>
+      <img className="blog-image" src={post.image_url} alt="blog" />
       <div className="txt">
-        <p className="date">Sunday,1 Jan 2023</p>
+        <p className="date">{post.pubDate}</p>
         <div className="head">
-          <h2>UX review presentations</h2>
-          <img src="./images/arrow.png" />
+          <h2>{post.title}</h2>
+          <img src="./images/arrow.png" alt="arrow" />
         </div>
-        <p>
-          How do you create compelling presentations that wow your colleagues
-          and impress your managers?
-        </p>
+        <p>{shortdesc}</p>
         <div className="blog-tags">
           <p>Design</p>
           <p>Research</p>
