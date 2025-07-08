@@ -1,14 +1,13 @@
 import styled from "styled-components";
-
+import { Link } from "react-router-dom";
 const NavContainer = styled.nav`
-  border-bottom: 1px solid;
-  height: 100px;
-  margin: 0 1rem;
-  padding: 0 0px;
   display: flex;
   align-items: center;
-  width: -webkit-fill-available;
+  width: 100%;
+  height: 111px;
   justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid;
 
   ul {
     display: flex;
@@ -57,10 +56,10 @@ function Nav() {
           <a href="#">Projects</a>
         </li>
         <li>
-          <a href="#">About</a>
+          <Link to="/About">About</Link>
         </li>
         <li>
-          <a href="#">Newsletter</a>
+          <Link to="/Newsletter">Newsletter</Link>
         </li>
       </ul>
     </NavContainer>
