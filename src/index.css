@@ -38,10 +38,6 @@ p {
   font-size: var(--font-size-p);
 }
 
-ul {
-  list-style: none;
-}
-
 footer {
   display: flex;
   height: 80px;
@@ -50,19 +46,19 @@ footer {
   justify-content: center;
 }
 
-.heading {
-  margin: 7vh 0;
+.head-hero {
+  margin: 3vh 0;
   font-weight: 700;
   font-size: clamp(3rem, 15vw, 13rem);
 }
 
 .blogs-container-head {
+  border-top: 1px solid;
   display: grid;
 }
 
 .blogs-container-head h3 {
-  border-top: 1px solid;
-  padding: 3vh 0 0 0;
+  margin: 0 0 2vh 0;
   text-align: left;
   font-size: 42px;
   font-weight: 500;
@@ -99,7 +95,7 @@ footer {
 .blog-image {
   width: auto;
   aspect-ratio: 8/5;
-  margin: 0;
+  margin: auto;
 }
 
 .blog .date {
@@ -278,10 +274,7 @@ footer {
   }
 } */
 @media (max-width: 768px) {
-
-  .blogs-container,
-  .all-posts {
-    margin: 0 20px;
+  .blogs-container,.all-posts {
     grid-template-columns: 1fr;
   }
 }
